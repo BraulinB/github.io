@@ -47,7 +47,7 @@ h1, h2, h3, h4 {
     margin-bottom: 0.8em;
     line-height: 1.3;
     word-wrap: break-word;
-    overflow-wrap: break-word; /* Asegura el quiebre de palabras largas */
+    overflow-wrap: break-word; 
 }
 
 h1 { font-size: 2.8em; }
@@ -67,7 +67,7 @@ a {
     transition: color 0.3s ease;
 }
 a:hover {
-    color: #0056b3; /* Un azul un poco más oscuro para hover */
+    color: #0056b3; 
 }
 
 .highlight {
@@ -90,7 +90,7 @@ a:hover {
     color: var(--highlight-color);
 }
 .dark-section a:hover {
-    color: #ffda6b; /* Un amarillo más claro para hover */
+    color: #ffda6b; 
 }
 
 
@@ -226,7 +226,7 @@ header .container {
     padding: 14px 30px;
 }
 .hero .cta-button:hover {
-    background-color: #e6ac00; /* Amarillo más oscuro para hover */
+    background-color: #e6ac00; 
 }
 .google-rating-visual {
     margin-top: 25px;
@@ -389,26 +389,19 @@ header .container {
     margin: 0 auto;
 }
 .benefits-section li {
-    font-size: 1.05em;
-    margin-bottom: 18px; /* Un poco más de espacio */
+    font-size: 1.05em; /* El texto de los items ya no tendrá strong, así que el peso es el normal */
+    font-weight: 400; /* Asegurar que no sea bold por herencia */
+    margin-bottom: 18px; 
     display: flex;
     align-items: flex-start;
-    line-height: 1.6; /* Mejorar legibilidad del texto multilínea */
+    line-height: 1.6; 
 }
 .benefits-section li i.fa-check-circle {
     color: var(--secondary-color);
     margin-right: 12px;
     font-size: 1.2em;
-    margin-top: 5px; /* Alineación vertical del ícono */
-    flex-shrink: 0; /* Evita que el ícono se encoja */
-}
-.benefits-section li strong {
-    font-weight: 600;
-    display: inline; /* O 'inline-block' para más control si es necesario */
-}
-/* Para asegurar que el texto después del strong tenga espacio y se comporte bien */
-.benefits-section li strong + span {
-    display: inline; /* O podrías probar 'inline-block' si es necesario */
+    margin-top: 5px; 
+    flex-shrink: 0; 
 }
 
 
@@ -456,7 +449,7 @@ header .container {
     background-color: var(--secondary-color);
 }
 .cta-testimonial:hover {
-    background-color: #1e7e34; /* Verde más oscuro para hover */
+    background-color: #1e7e34; 
 }
 
 
@@ -467,15 +460,38 @@ header .container {
     text-align: center;
 }
 .cta-final-section h2 {
-    margin-bottom: 0.5em; /* Menos espacio antes del párrafo */
+    margin-bottom: 0.5em; 
 }
-.cta-final-section p {
-    font-size: 1.1em;
+.cta-final-section > p { /* Párrafo introductorio al CTA */
+    font-size: 1.15em;
     max-width: 700px;
-    margin: 0 auto 1.5em auto; /* Ajuste de margen */
+    margin: 0 auto 1.5em auto; 
+    color: #555;
 }
 .cta-final-section .cta-button {
-    margin-top: 10px; /* Menos espacio si solo está el botón */
+    margin-top: 10px; 
+    margin-bottom: 30px; /* Espacio antes del texto de Calendly */
+}
+.calendly-cta {
+    margin-top: 25px;
+    padding-top: 25px;
+    border-top: 1px solid #eee;
+    max-width: 700px; /* Para centrar el contenido de calendly */
+    margin-left: auto;
+    margin-right: auto;
+}
+.calendly-cta-text {
+    font-size: 1.1em;
+    color: var(--text-color-light);
+    margin-bottom: 15px;
+    line-height: 1.5;
+}
+.calendly-cta-text strong {
+    color: var(--primary-color);
+    font-weight: 700;
+}
+#calendly-embed-container { /* Estilo para el contenedor del widget de Calendly */
+    background-color: #f9f9f9; /* Un fondo sutil si el widget tarda en cargar */
 }
 
 
@@ -559,8 +575,10 @@ footer p {
      .timeline-icon i { font-size: 1.2em; }
 
     .benefits-section li {
-        font-size: 1em; /* Ajustar tamaño de fuente en móvil si es necesario */
+        font-size: 1em; 
     }
+    .cta-final-section > p { font-size: 1.05em; }
+    .calendly-cta-text { font-size: 1em; }
 }
 
 @media (max-width: 480px) {
@@ -569,8 +587,8 @@ footer p {
     .hero-content h1 { font-size: 2em; }
     .hero .subtitle { font-size: 1em; padding: 0 10px;}
     .cta-button, .hero .cta-button, .cta-button.large {
-        font-size: 0.95em;
-        padding: 12px 20px;
+        font-size: 0.9em; /* Un poco más pequeño para mejor ajuste */
+        padding: 12px 18px; /* Ajuste de padding */
     }
     .google-rating-visual .fa-star { font-size: 1.5em; }
     .feature-list { grid-template-columns: 1fr; }
@@ -580,10 +598,11 @@ footer p {
     .timeline-item::before { left: 40px; }
 
     .benefits-section li {
-        font-size: 0.95em; /* Aún más pequeño para móviles muy pequeños */
-        line-height: 1.5; /* Reducir un poco si es necesario */
+        font-size: 0.95em; 
+        line-height: 1.5; 
     }
     .benefits-section li i.fa-check-circle {
-        margin-top: 4px; /* Ajuste fino para móviles */
+        margin-top: 4px; 
     }
+    .cta-final-section > p { font-size: 1em; }
 }
