@@ -10,10 +10,10 @@ document.addEventListener('DOMContentLoaded', () => {
             navLinks.classList.toggle('active');
             
             if (navLinks.classList.contains('active')) {
-                menuToggle.innerHTML = '&#10005;'; // Símbolo X
+                menuToggle.innerHTML = '✕'; // Símbolo X
                 menuToggle.setAttribute('aria-label', 'Cerrar menú');
             } else {
-                menuToggle.innerHTML = '&#9776;'; // Símbolo hamburguesa
+                menuToggle.innerHTML = '☰'; // Símbolo hamburguesa
                 menuToggle.setAttribute('aria-label', 'Abrir menú');
             }
         });
@@ -22,17 +22,15 @@ document.addEventListener('DOMContentLoaded', () => {
     // Smooth scroll para enlaces de anclaje y cerrar menú
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
-            // Permitir comportamiento por defecto para enlaces externos (como WhatsApp)
             if (this.getAttribute('href').startsWith('#')) {
                 e.preventDefault();
                 const targetId = this.getAttribute('href');
                 const targetElement = document.querySelector(targetId);
 
                 if (targetElement) {
-                    // Cerrar menú móvil si está abierto y se hace clic en un enlace de anclaje
                     if (navLinks && navLinks.classList.contains('active')) {
                         navLinks.classList.remove('active');
-                        menuToggle.innerHTML = '&#9776;';
+                        menuToggle.innerHTML = '☰';
                         menuToggle.setAttribute('aria-label', 'Abrir menú');
                         menuToggle.setAttribute('aria-expanded', 'false');
                     }
