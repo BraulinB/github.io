@@ -48,7 +48,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // (Opcional) Activar enlace de navegación según la sección visible
+    // Activar enlace de navegación según la sección visible
     const sections = document.querySelectorAll('section[id]');
     const navLiA = document.querySelectorAll('.nav-links li a'); 
 
@@ -68,7 +68,8 @@ document.addEventListener('DOMContentLoaded', () => {
         
         navLiA.forEach(a => {
             a.classList.remove('active');
-            if (a.getAttribute('href') === `#${currentSectionId}`) {
+            // Comprobar que el href no sea solo "#" (en caso de algún enlace vacío accidental)
+            if (a.getAttribute('href') && a.getAttribute('href').length > 1 && a.getAttribute('href') === `#${currentSectionId}`) {
                 a.classList.add('active');
             }
         });
