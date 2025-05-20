@@ -1,14 +1,14 @@
 /* --- Reset Básico y Variables --- */
 :root {
-    --primary-color: #007bff;
-    --secondary-color: #28a745;
-    --dark-bg: #222831;
-    --light-bg: #f8f9fa;
+    --primary-color: #007bff; /* Azul moderno */
+    --secondary-color: #28a745; /* Verde para éxito */
+    --dark-bg: #222831; /* Un gris oscuro casi negro */
+    --light-bg: #f8f9fa; /* Un gris muy claro */
     --text-color-dark: #eeeeee;
     --text-color-light: #333333;
     --heading-font: 'Montserrat', sans-serif;
     --body-font: 'Open Sans', sans-serif;
-    --highlight-color: #FFC107;
+    --highlight-color: #FFC107; /* Amarillo para destacar */
     --card-bg: #ffffff;
     --card-shadow: 0 5px 15px rgba(0,0,0,0.08);
 }
@@ -38,6 +38,9 @@ body {
     max-width: 1100px;
     margin: 0 auto;
     padding: 0 15px;
+}
+.text-center { /* Helper class */
+    text-align: center;
 }
 
 h1, h2, h3, h4 {
@@ -93,10 +96,6 @@ a:hover {
     color: #ffda6b;
 }
 
-.light-bg { /* Clase utilitaria para fondo claro, usada en Partner Section */
-    background-color: var(--light-bg);
-}
-
 
 .cta-button {
     display: inline-block;
@@ -126,7 +125,7 @@ a:hover {
 /* --- Header --- */
 header {
     background-color: #fff;
-    padding: 12px 0; /* Un poco menos padding */
+    padding: 10px 0; /* Reducido un poco el padding */
     box-shadow: 0 2px 5px rgba(0,0,0,0.07);
     position: sticky;
     top: 0;
@@ -140,42 +139,37 @@ header .container {
     justify-content: space-between;
     align-items: center;
 }
-
-.logo-wrapper { /* Nuevo contenedor para el logo GMP y el texto del logo */
-    display: flex;
-    align-items: center; /* Centra verticalmente el logo GMP y el div.logo */
-}
-
-.header-gmp-logo {
-    height: 30px; /* Ajusta este valor según el logo y preferencia */
-    width: auto; /* Para mantener la proporción del logo */
-    margin-right: 10px;
-    flex-shrink: 0; /* Evita que el logo se encoja */
-}
-
-.logo { /* Contenedor para el nombre y el subtítulo */
+.logo {
     font-family: var(--heading-font);
-    font-size: 1.4em; /* Ajustado */
+    font-size: 1.4em; /* Ajustado para dar espacio al logo */
     font-weight: 900;
     color: var(--primary-color);
-    line-height: 1.1; /* Para mejor control con el subtítulo */
+    display: flex; /* Para alinear texto y logo */
+    align-items: center;
+    flex-wrap: wrap; /* Para que el subtítulo baje si no cabe */
 }
-
+.header-google-logo {
+    height: 28px; /* Ajusta según el tamaño deseado y el logo original */
+    width: auto;
+    margin-left: 8px;
+    vertical-align: middle; /* Ayuda, pero flex en .logo es mejor */
+}
 .logo-subtitle {
-    font-size: 0.5em; /* Relativo al font-size de .logo */
+    font-size: 0.55em;
     font-weight: 400;
     color: #777;
     display: block;
-    margin-top: 1px; /* Ajuste fino */
+    margin-top: -3px;
     letter-spacing: 0.5px;
+    width: 100%; /* Para que ocupe toda la línea debajo del nombre y logo */
+    line-height: 1.2;
 }
-
 .nav-links {
     list-style: none;
     display: flex;
 }
 .nav-links li {
-    margin-left: 18px; /* Un poco menos */
+    margin-left: 18px; /* Un poco menos de espacio */
 }
 .nav-links a {
     color: var(--text-color-light);
@@ -262,8 +256,8 @@ header .container {
     color: #ddd;
 }
 
-/* --- Info Section (Problema/Solución) --- */
-.info-section {
+/* --- Info Section (Problema/Solución & Google Partner) --- */
+.info-section { /* Usada por #importancia y #google-partner-section */
     padding: 60px 0;
     background-color: var(--light-bg);
 }
@@ -291,6 +285,25 @@ header .container {
     color: var(--primary-color);
     margin-bottom: 15px;
 }
+
+/* --- Google Partner Section Specifics --- */
+#google-partner-section h2 {
+    margin-bottom: 1em; /* Más espacio después del título */
+}
+.google-partner-badge {
+    display: block;
+    max-width: 220px; /* Ajusta según el logo */
+    height: auto;
+    margin: 0 auto 25px auto;
+}
+.google-partner-text {
+    max-width: 700px;
+    margin: 0 auto;
+    font-size: 1.05em;
+    color: #444; /* Texto un poco más oscuro para legibilidad */
+    line-height: 1.8;
+}
+
 
 /* --- Service Description --- */
 .service-description .section-intro {
@@ -401,34 +414,6 @@ header .container {
     margin-top: 0;
 }
 
-/* --- Partner Section --- */
-.partner-section {
-    padding: 50px 0;
-    text-align: center;
-}
-.partner-section h2 {
-    margin-bottom: 1.2em; /* Un poco más de espacio para el título */
-}
-.partner-content {
-    display: flex;
-    flex-direction: column; /* Apilado en móvil por defecto */
-    align-items: center;
-    gap: 20px;
-    max-width: 750px; /* Ancho máximo del contenido */
-    margin: 0 auto;
-}
-.partner-logo-img {
-    max-height: 70px; /* Tamaño del logo de Google Partner */
-    width: auto;
-    margin-bottom: 15px; /* Espacio debajo del logo en móvil */
-}
-.partner-content p {
-    font-size: 1em;
-    line-height: 1.7;
-    color: var(--text-color-light);
-    text-align: center; /* Centrado en móvil */
-}
-
 /* --- Benefits Section --- */
 .benefits-section ul {
     list-style: none;
@@ -454,7 +439,7 @@ header .container {
     font-weight: 600;
     display: inline;
 }
-.benefits-section li strong + span {
+.benefits-section li strong + span { /* Para forzar el espacio en el texto restante */
     display: inline;
 }
 
@@ -462,7 +447,8 @@ header .container {
 /* --- Testimonials Section --- */
 .testimonials-section {
     padding: 60px 0;
-    background-color: var(--light-bg); /* Fondo claro para testimonios */
+    /* background-color: var(--light-bg); NO, la dejaremos en blanco para alternar */
+    background-color: #fff;
 }
 .testimonials-grid {
     display: grid;
@@ -472,12 +458,13 @@ header .container {
     margin-bottom: 2.5em;
 }
 .testimonial-card {
-    background-color: var(--card-bg);
+    background-color: var(--light-bg); /* Cambiado para destacar sobre fondo blanco */
     padding: 25px;
     border-radius: 8px;
     box-shadow: var(--card-shadow);
     display: flex;
     flex-direction: column;
+    border: 1px solid #e0e0e0; /* Borde sutil */
 }
 .testimonial-stars {
     color: var(--highlight-color);
@@ -510,7 +497,7 @@ header .container {
 /* --- CTA Final / Contacto --- */
 .cta-final-section {
     padding: 60px 0;
-    background-color: #fff;
+    background-color: var(--light-bg); /* Para alternar con Testimonios si es blanco */
     text-align: center;
 }
 .cta-final-section h2 {
@@ -547,6 +534,8 @@ footer p {
     .hero .subtitle { font-size: 1.1em; }
     .columns { flex-direction: column; }
     .column { margin-bottom: 20px; }
+    .nav-links li { margin-left: 15px; } /* Reducir espacio entre ítems de nav */
+    .nav-links a { font-size: 0.85em; }
 }
 
 @media (max-width: 768px) {
@@ -555,12 +544,9 @@ footer p {
     h3 { font-size: 1.3em; }
     p { font-size: 0.95em; }
 
-    .header-gmp-logo { height: 26px; margin-right: 8px; }
-    .logo { font-size: 1.2em; }
-    .logo-subtitle { font-size: 0.45em; margin-top: 0;}
-    .nav-links li { margin-left: 15px; }
-    .nav-links a { font-size: 0.85em; }
-
+    .logo { font-size: 1.2em;} /* Reducir para que quepa bien con logo y subtítulo */
+    .header-google-logo { height: 24px; margin-left: 6px; }
+    .logo-subtitle { font-size: 0.5em; width: auto; /* Permitir que no ocupe el 100% si cabe al lado */}
 
     .hero { min-height: auto; padding: 50px 0;}
     .hero-content h1 { font-size: 2.2em; }
@@ -587,6 +573,7 @@ footer p {
         text-align: center;
         width: 100%;
         border-bottom: 1px solid #f0f0f0;
+        font-size: 1em; /* Restaurar tamaño para mejor tap en móvil */
     }
     .nav-links li:last-child a { border-bottom: none; }
     .nav-links a::after { display: none; }
@@ -609,40 +596,9 @@ footer p {
     }
      .timeline-icon i { font-size: 1.2em; }
 
-    .benefits-section li {
-        font-size: 1em;
-    }
-
-    .partner-content {
-        flex-direction: column; /* Asegura apilado en tablet */
-        align-items: center;
-    }
-    .partner-logo-img {
-        max-height: 60px; /* Un poco más pequeño si es necesario */
-        margin-bottom: 15px;
-    }
-    .partner-content p {
-        text-align: center; /* Texto centrado en tablet */
-    }
+    .benefits-section li { font-size: 1em; }
+    .google-partner-badge { max-width: 180px; }
 }
-
-@media (min-width: 769px) { /* Estilos para desktop para la sección Partner */
-    .partner-content {
-        flex-direction: row;
-        align-items: center; /* Centrar verticalmente logo y texto */
-        text-align: left;
-    }
-    .partner-logo-img {
-        max-height: 80px; /* Tamaño para desktop */
-        margin-bottom: 0;
-        margin-right: 30px; /* Espacio entre logo y texto */
-        flex-shrink: 0;
-    }
-    .partner-content p {
-        text-align: left;
-    }
-}
-
 
 @media (max-width: 480px) {
     .container { width: 95%; }
@@ -657,9 +613,8 @@ footer p {
     .feature-list { grid-template-columns: 1fr; }
     .testimonials-grid { grid-template-columns: 1fr; }
 
-    .header-gmp-logo { height: 24px; margin-right: 6px; }
-    .logo { font-size: 1.1em; }
-    .logo-subtitle { font-size: 0.45em; }
+    .logo { font-size: 1.1em; } /* Aún más pequeño si es necesario */
+    .header-google-logo { height: 20px; }
 
     .timeline-item { padding-left: 50px; }
     .timeline-item::before { left: 40px; }
@@ -668,10 +623,7 @@ footer p {
         font-size: 0.95em;
         line-height: 1.5;
     }
-    .benefits-section li i.fa-check-circle {
-        margin-top: 4px;
-    }
-
-    .partner-logo-img { max-height: 50px; } /* Más pequeño en móvil */
-    .partner-content p { font-size: 0.9em; }
+    .benefits-section li i.fa-check-circle { margin-top: 4px; }
+    .google-partner-badge { max-width: 150px; }
+    .google-partner-text { font-size: 1em; }
 }
