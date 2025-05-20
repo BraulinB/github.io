@@ -68,7 +68,6 @@ document.addEventListener('DOMContentLoaded', () => {
         
         navLiA.forEach(a => {
             a.classList.remove('active');
-            // Comprobar si el href del enlace (quitando el '#') coincide con el ID de la sección actual
             if (a.getAttribute('href') && a.getAttribute('href').substring(1) === currentSectionId) {
                 a.classList.add('active');
             }
