@@ -68,8 +68,8 @@ document.addEventListener('DOMContentLoaded', () => {
         
         navLiA.forEach(a => {
             a.classList.remove('active');
-            // Comprobar que el href no sea solo "#" (en caso de algún enlace vacío accidental)
-            if (a.getAttribute('href') && a.getAttribute('href').length > 1 && a.getAttribute('href') === `#${currentSectionId}`) {
+            // Comprobar si el href del enlace (quitando el '#') coincide con el ID de la sección actual
+            if (a.getAttribute('href') && a.getAttribute('href').substring(1) === currentSectionId) {
                 a.classList.add('active');
             }
         });
