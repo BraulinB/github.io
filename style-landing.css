@@ -39,7 +39,7 @@ body {
     margin: 0 auto;
     padding: 0 15px;
 }
-.text-center { /* Helper class */
+.text-center {
     text-align: center;
 }
 
@@ -125,7 +125,7 @@ a:hover {
 /* --- Header --- */
 header {
     background-color: #fff;
-    padding: 10px 0; /* Reducido un poco el padding */
+    padding: 10px 0;
     box-shadow: 0 2px 5px rgba(0,0,0,0.07);
     position: sticky;
     top: 0;
@@ -141,18 +141,18 @@ header .container {
 }
 .logo {
     font-family: var(--heading-font);
-    font-size: 1.4em; /* Ajustado para dar espacio al logo */
+    font-size: 1.4em;
     font-weight: 900;
     color: var(--primary-color);
-    display: flex; /* Para alinear texto y logo */
+    display: flex;
     align-items: center;
-    flex-wrap: wrap; /* Para que el subtítulo baje si no cabe */
+    flex-wrap: wrap;
 }
 .header-google-logo {
-    height: 28px; /* Ajusta según el tamaño deseado y el logo original */
+    height: 28px;
     width: auto;
     margin-left: 8px;
-    vertical-align: middle; /* Ayuda, pero flex en .logo es mejor */
+    vertical-align: middle;
 }
 .logo-subtitle {
     font-size: 0.55em;
@@ -161,7 +161,7 @@ header .container {
     display: block;
     margin-top: -3px;
     letter-spacing: 0.5px;
-    width: 100%; /* Para que ocupe toda la línea debajo del nombre y logo */
+    width: 100%;
     line-height: 1.2;
 }
 .nav-links {
@@ -169,12 +169,12 @@ header .container {
     display: flex;
 }
 .nav-links li {
-    margin-left: 18px; /* Un poco menos de espacio */
+    margin-left: 18px;
 }
 .nav-links a {
     color: var(--text-color-light);
     font-weight: 600;
-    font-size: 0.9em; /* Un poco más pequeño */
+    font-size: 0.9em;
     padding: 5px 0;
     position: relative;
 }
@@ -257,7 +257,7 @@ header .container {
 }
 
 /* --- Info Section (Problema/Solución & Google Partner) --- */
-.info-section { /* Usada por #importancia y #google-partner-section */
+.info-section {
     padding: 60px 0;
     background-color: var(--light-bg);
 }
@@ -288,11 +288,11 @@ header .container {
 
 /* --- Google Partner Section Specifics --- */
 #google-partner-section h2 {
-    margin-bottom: 1em; /* Más espacio después del título */
+    margin-bottom: 1em;
 }
 .google-partner-badge {
     display: block;
-    max-width: 220px; /* Ajusta según el logo */
+    max-width: 220px;
     height: auto;
     margin: 0 auto 25px auto;
 }
@@ -300,7 +300,7 @@ header .container {
     max-width: 700px;
     margin: 0 auto;
     font-size: 1.05em;
-    color: #444; /* Texto un poco más oscuro para legibilidad */
+    color: #444;
     line-height: 1.8;
 }
 
@@ -439,7 +439,7 @@ header .container {
     font-weight: 600;
     display: inline;
 }
-.benefits-section li strong + span { /* Para forzar el espacio en el texto restante */
+.benefits-section li strong + span {
     display: inline;
 }
 
@@ -447,7 +447,6 @@ header .container {
 /* --- Testimonials Section --- */
 .testimonials-section {
     padding: 60px 0;
-    /* background-color: var(--light-bg); NO, la dejaremos en blanco para alternar */
     background-color: #fff;
 }
 .testimonials-grid {
@@ -458,13 +457,13 @@ header .container {
     margin-bottom: 2.5em;
 }
 .testimonial-card {
-    background-color: var(--light-bg); /* Cambiado para destacar sobre fondo blanco */
+    background-color: var(--light-bg);
     padding: 25px;
     border-radius: 8px;
     box-shadow: var(--card-shadow);
     display: flex;
     flex-direction: column;
-    border: 1px solid #e0e0e0; /* Borde sutil */
+    border: 1px solid #e0e0e0;
 }
 .testimonial-stars {
     color: var(--highlight-color);
@@ -497,20 +496,49 @@ header .container {
 /* --- CTA Final / Contacto --- */
 .cta-final-section {
     padding: 60px 0;
-    background-color: var(--light-bg); /* Para alternar con Testimonios si es blanco */
+    background-color: var(--light-bg);
     text-align: center;
 }
 .cta-final-section h2 {
     margin-bottom: 0.5em;
 }
-.cta-final-section p {
+.cta-final-section > .container > p { /* Párrafo introductorio */
     font-size: 1.1em;
     max-width: 700px;
     margin: 0 auto 1.5em auto;
 }
-.cta-final-section .cta-button {
-    margin-top: 10px;
+.cta-final-section .cta-button.large { /* Botón de WhatsApp */
+    margin-bottom: 25px; /* Espacio antes del texto de Calendly */
 }
+
+/* Estilos para la información de Calendly */
+.calendly-info {
+    margin-top: 30px;
+    border-top: 1px solid #ddd; /* Separador visual opcional */
+    padding-top: 25px;
+}
+.calendly-info p { /* Párrafo "O si lo prefieres..." */
+    font-size: 1.05em;
+    color: var(--text-color-light);
+    margin-bottom: 20px;
+}
+#calendly-embed-placeholder {
+    /* El widget de Calendly suele manejar su propio estilo responsive.
+       Este contenedor es para el texto de fallback y para dar un espacio. */
+    min-height: 100px; /* Altura mínima para el texto de fallback */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+/* Si necesitas forzar tamaño al iframe de Calendly (ajústalo según tu embed) */
+/*
+#calendly-embed-placeholder iframe {
+    width: 100%;
+    max-width: 800px; 
+    height: 650px; 
+    border: 0;
+}
+*/
 
 
 /* --- Footer --- */
@@ -534,7 +562,7 @@ footer p {
     .hero .subtitle { font-size: 1.1em; }
     .columns { flex-direction: column; }
     .column { margin-bottom: 20px; }
-    .nav-links li { margin-left: 15px; } /* Reducir espacio entre ítems de nav */
+    .nav-links li { margin-left: 15px; }
     .nav-links a { font-size: 0.85em; }
 }
 
@@ -544,9 +572,9 @@ footer p {
     h3 { font-size: 1.3em; }
     p { font-size: 0.95em; }
 
-    .logo { font-size: 1.2em;} /* Reducir para que quepa bien con logo y subtítulo */
+    .logo { font-size: 1.2em;}
     .header-google-logo { height: 24px; margin-left: 6px; }
-    .logo-subtitle { font-size: 0.5em; width: auto; /* Permitir que no ocupe el 100% si cabe al lado */}
+    .logo-subtitle { font-size: 0.5em; width: auto; }
 
     .hero { min-height: auto; padding: 50px 0;}
     .hero-content h1 { font-size: 2.2em; }
@@ -573,7 +601,7 @@ footer p {
         text-align: center;
         width: 100%;
         border-bottom: 1px solid #f0f0f0;
-        font-size: 1em; /* Restaurar tamaño para mejor tap en móvil */
+        font-size: 1em;
     }
     .nav-links li:last-child a { border-bottom: none; }
     .nav-links a::after { display: none; }
@@ -598,6 +626,8 @@ footer p {
 
     .benefits-section li { font-size: 1em; }
     .google-partner-badge { max-width: 180px; }
+
+    .calendly-info { margin-top: 20px; padding-top: 20px; }
 }
 
 @media (max-width: 480px) {
@@ -613,7 +643,7 @@ footer p {
     .feature-list { grid-template-columns: 1fr; }
     .testimonials-grid { grid-template-columns: 1fr; }
 
-    .logo { font-size: 1.1em; } /* Aún más pequeño si es necesario */
+    .logo { font-size: 1.1em; }
     .header-google-logo { height: 20px; }
 
     .timeline-item { padding-left: 50px; }
@@ -626,4 +656,10 @@ footer p {
     .benefits-section li i.fa-check-circle { margin-top: 4px; }
     .google-partner-badge { max-width: 150px; }
     .google-partner-text { font-size: 1em; }
+
+    /* Ajustes para el placeholder de Calendly en móviles muy pequeños */
+    #calendly-embed-placeholder p {
+        font-size: 0.9em;
+        padding: 15px;
+    }
 }
